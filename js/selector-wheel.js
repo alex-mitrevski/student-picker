@@ -108,7 +108,9 @@
 
         maxSpeed : Math.PI / 16,
 
-        upTime : 1000, // How long to spin up for (in ms)
+        upTime : -1, // How long to spin up for (in ms); changes at each spin
+        minUpTime: 2000, //Minimum spin up time (in ms)
+        maxUpTime: 5000, //Maximum spin up time (in ms)
         downTime : 2000, // How long to slow down for (in ms)
 
         spinStart : 0,
@@ -122,6 +124,8 @@
 
             // Start the wheel only if it's not already spinning
             if (wheel.timerHandle == 0) {
+                wheel.upTime = wheel.minUpTime + (Math.random() * (wheel.maxUpTime - wheel.minUpTime));
+                console.log(wheel.upTime);
                 wheel.spinStart = new Date().getTime();
                 wheel.maxSpeed = Math.PI / (16 + Math.random()); // Randomly vary how hard the spin is
                 wheel.frames = 0;
@@ -146,7 +150,7 @@
                 wheel.angleDelta = wheel.maxSpeed
                         * Math.sin(progress * Math.PI / 2);
             } else {
-                progress = duration / wheel.downTime;
+                progress = duration / (wheel.upTime + wheel.downTime);
                 wheel.angleDelta = wheel.maxSpeed
                         * Math.sin(progress * Math.PI / 2 + Math.PI / 2);
                 if (progress >= 1)
