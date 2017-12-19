@@ -21,26 +21,6 @@
         return ((this%n)+n)%n;
     }
 
-    /*students = {
-        "116208"  : "Jerry's Subs and Pizza",
-        "66271"   : "Starbucks",
-        "5518"    : "Ireland's Four Courts",
-        "392360"  : "Five Guys",
-        "2210952" : "Uptown Cafe",
-        "207306"  : "Corner Bakery Courthouse",
-        "41457"   : "Delhi Dhaba",
-        "101161"  : "TNR Cafe",
-        "257424"  : "Afghan Kabob House",
-        "512060"  : "The Perfect Pita",
-        "66244"   : "California Tortilla",
-        "352867"  : "Pho 75 - Rosslyn",
-        "22493"   : "Ragtime",
-        "268052"  : "Subway",
-        "5665"    : "Summers Restaurant & Sports Bar",
-        "129724"  : "Cosi",
-        "42599"   : "Ray's Hell Burger"
-    };*/
-
     students = courses[0].students
 
     $(function() {
@@ -169,12 +149,6 @@
 
                 $("#counter").html((wheel.frames / duration * 1000) + " FPS");
             }
-
-            /*
-            // Display RPM
-            var rpm = (wheel.angleDelta * (1000 / wheel.timerDelay) * 60) / (Math.PI * 2);
-            $("#counter").html( Math.round(rpm) + " RPM" );
-             */
         },
 
         init : function(optionList) {
